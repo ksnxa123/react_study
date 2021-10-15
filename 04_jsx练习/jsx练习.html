@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsx练习</title>
+</head>
+<body>
+    <div id="test"></div>
+
+    <!-- 引入react核心库 -->
+    <script src="../js//react.development.js"></script>
+    <!-- 引入操作dom的库 -->
+    <script src="../js/react-dom.development.js"></script>
+    <!-- 引入 babel，用于将jsx转换js -->
+    <script src="../js/babel.min.js"></script>
+
+    <script type="text/babel">
+        /* 
+            注意：【js语句】与【js表达式】
+                1.表达式：一个表达式会产生一个值，可以放在任何一个需要值的地方
+                    (1)a
+                    (2)a+b
+                    (3)demo(1)
+                    (4)arr.map()
+                    (5)function test(){}
+                2.语句：
+                    if(){}
+                    for()
+                    switch()    
+        */
+        // 模拟数据
+        const data = ['apple','pear','banner']
+        // 1.创建虚拟DOM
+        const VDOM = (
+            <div>
+                <h1>水果</h1>    
+                <ul>
+                    {
+                        data.map((item,index)=>{
+                            return <li key={index}>{item}</li>
+                        })
+                    }    
+                </ul>
+            </div>
+        )
+        // 2.渲染虚拟DOM到页面
+        ReactDOM.render(VDOM,document.getElementById('test'))
+    </script>
+</body>
+</html>
